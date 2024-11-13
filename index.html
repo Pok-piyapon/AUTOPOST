@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Facebook Auto Post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <style>
+        body {
+            margin: 5%;
+        }
+
+        .placeholder {
+            border-radius: 5px;
+            padding: 3%;
+        }
+
+        .size {
+            border-left: 2px solid gray;
+            padding-left: 2%;
+            margin-left: 2%;
+            display: inline-block;
+        }
+
+        .sizeNum {
+            width: 80px;
+
+        }
+
+        .container {
+            margin: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="ui fluid icon buttons">
+            <button onclick="start();logger();" class="ui button">
+                <i class="play icon"></i>
+            </button>
+            <button onclick="window.location.reload(true)" class="ui button">
+                <i class="pause icon"></i>
+            </button>
+            <button class="ui button">
+                <i class="shuffle icon"></i>
+            </button>
+        </div>
+<br><br><br>
+        <div class="ui placeholder fluid container">
+            <div class="ui toggle checkbox">
+                <input checked onchange="SaveConfig(this)" id="showProcess" type="checkbox" name="public">
+                <label>แสดงการทำงาน</label>
+            </div>
+            <div  class="ui toggle checkbox">
+                <input checked onchange="Delay(this)" id="delay" type="checkbox" name="public">
+                <label for="Delay 6 Hours ">Delay 6 Hours </label>
+            </div>
+        </div>
+
+        <div class="ui placeholder fluid container">
+            <div class="ui input focus ">
+                <input id="newGroups" class="" type="text" placeholder="กรอก URL กลุ่มเฟส">
+                <button onclick="addGroups()" style="margin-left: 5%;" class="ui green button">เพิ่ม</button>
+            </div>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Link</th>
+                        <th>Interaction</th>
+                    </tr>
+                </thead>
+                <tbody id="groups">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ui placeholder fluid container">
+            <textarea id="content" style="width: 100%;height: 150px;outline: none;border:none;">
+            </textarea>
+            <br><br>
+            <button onclick="SaveContent()" style="width: 100% !important;" class="ui green button">Save Content</button>
+
+        </div>
+
+        <div class="ui placeholder fluid container">
+            <div class="ui input focus ">
+                <button onclick="addImage()" style="width: 150px !important;" class="ui green button">เพิ่มภาพ</button>
+            </div>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Interaction</th>
+                    </tr>
+                </thead>
+                <tbody id="images">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="./renderer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>
